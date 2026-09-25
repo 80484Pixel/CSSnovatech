@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account | NovaTech</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">Nova<span>Tech</span></a>
+    <nav>
+      <a href="index.html">Shop</a>
+      <a href="account.html">Account</a>
+      <a class="cart-link" href="cart.html">Cart <span id="cart-count">0</span></a>
+    </nav>
+  </header>
+
+  <main class="section narrow">
+    <p class="eyebrow">Customer information</p>
+    <h1>Create your account</h1>
+    <p class="muted">This demo stores your details only in this browser using localStorage.</p>
+
+    <form id="account-form" class="form-card">
+      <div class="form-grid">
+        <label>First name
+          <input id="firstName" required autocomplete="given-name">
+        </label>
+        <label>Last name
+          <input id="lastName" required autocomplete="family-name">
+        </label>
+      </div>
+
+      <label>Email
+        <input id="email" type="email" required autocomplete="email">
+      </label>
+
+      <label>Phone
+        <input id="phone" type="tel" autocomplete="tel">
+      </label>
+
+      <label>Street address
+        <input id="address" required autocomplete="street-address">
+      </label>
+
+      <div class="form-grid">
+        <label>City
+          <input id="city" required autocomplete="address-level2">
+        </label>
+        <label>Province
+          <select id="province" required>
+            <option value="QC">Quebec</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="form-grid">
+        <label>Postal code
+          <input id="postalCode" required autocomplete="postal-code" placeholder="H2X 1Y4">
+        </label>
+        <label>Country
+          <input id="country" value="Canada" required>
+        </label>
+      </div>
+
+      <label>Password
+        <input id="password" type="password" required minlength="6" autocomplete="new-password">
+      </label>
+
+      <button class="btn full" type="submit">Save account</button>
+      <p id="account-message" class="success-message"></p>
+    </form>
+
+    <section class="checkout-box">
+      <h2>Ready to order?</h2>
+      <p>Your shipping information will be used to complete the order.</p>
+      <button class="btn secondary full" id="place-order">Place demo order</button>
+      <p id="order-message" class="success-message"></p>
+    </section>
+  </main>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

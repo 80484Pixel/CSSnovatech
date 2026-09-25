@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart | NovaTech</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">Nova<span>Tech</span></a>
+    <nav>
+      <a href="index.html">Shop</a>
+      <a href="account.html">Account</a>
+      <a class="cart-link" href="cart.html">Cart <span id="cart-count">0</span></a>
+    </nav>
+  </header>
+
+  <main class="section cart-layout">
+    <section>
+      <p class="eyebrow">Your order</p>
+      <h1>Shopping cart</h1>
+      <div id="cart-items" class="cart-items"></div>
+    </section>
+
+    <aside class="summary-card">
+      <h2>Order summary</h2>
+      <div class="summary-line"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+      <div class="summary-line"><span>GST (5%)</span><strong id="gst">$0.00</strong></div>
+      <div class="summary-line"><span>QST (9.975%)</span><strong id="qst">$0.00</strong></div>
+      <div class="summary-line total"><span>Total</span><strong id="total">$0.00</strong></div>
+      <a class="btn full" href="account.html">Continue to account</a>
+    </aside>
+  </main>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
