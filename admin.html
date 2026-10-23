@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Panel | AuraTek</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a class="logo" href="index.html">
+            Aura<span>Tek</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Shop</a>
+            <a href="admin.html">Admin</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <main class="section admin-page">
+
+        <div class="admin-header">
+            <p class="eyebrow">AuraTek Administration</p>
+            <h1>Product Dashboard</h1>
+            <p class="muted">
+                Manage your store products in one place.
+            </p>
+        </div>
+
+        <div class="admin-dashboard">
+            <div class="admin-stat">
+                <h3>Total Products</h3>
+                <strong id="total-products">0</strong>
+            </div>
+
+            <div class="admin-stat">
+                <h3>Store Status</h3>
+                <strong>Active</strong>
+                <p class="muted">Local demo store</p>
+            </div>
+        </div>
+
+        <section class="admin-panel">
+            <h2>Add New Product</h2>
+
+            <form id="product-form" class="admin-form">
+
+                <label for="product-name">Product Name</label>
+                <input type="text" id="product-name" required>
+
+                <label for="product-price">Price ($)</label>
+                <input type="number" id="product-price"
+                       min="0" step="0.01" required>
+
+                <label for="product-category">Category</label>
+                <input type="text" id="product-category" required>
+
+                <label for="product-image">Image URL</label>
+                <input type="url" id="product-image" required>
+
+                <label for="product-description">Description</label>
+                <textarea id="product-description"></textarea>
+
+                <button type="submit" class="btn">
+                    + Add Product
+                </button>
+
+            </form>
+        </section>
+
+        <section class="admin-panel">
+            <h2>Product Inventory</h2>
+            <div id="admin-product-list"></div>
+        </section>
+
+    </main>
+
+    <script src="js/products.js"></script>
+    <script src="js/admin.js"></script>
+
+</body>
+</html>

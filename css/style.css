@@ -233,3 +233,119 @@ footer{
   .cart-item img{width:80px;height:75px}
   .cart-item>div:last-child{grid-column:1/-1}
 }
+
+/* ===================================
+   AURATEK ADMIN DASHBOARD
+=================================== */
+
+.admin-page {
+    max-width: 1100px;
+}
+
+.admin-header {
+    margin-bottom: 2rem;
+}
+
+.admin-header h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin: 0.5rem 0;
+}
+
+.admin-dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.admin-stat {
+    background: #151c2c;
+    border: 1px solid var(--border);
+    border-radius: 1.2rem;
+    padding: 1.5rem;
+}
+
+.admin-stat h3 {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.admin-stat strong {
+    display: block;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+}
+
+.admin-panel {
+    background: #151c2c;
+    border: 1px solid var(--border);
+    border-radius: 1.3rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.admin-panel h2 {
+    margin-bottom: 1.5rem;
+}
+
+.admin-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.admin-form textarea {
+    width: 100%;
+    min-height: 110px;
+    padding: 0.9rem;
+    background: #0d1421;
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    font: inherit;
+    resize: vertical;
+}
+
+.admin-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.admin-product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background: #0d1421;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+}
+
+.admin-product-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.admin-product-info h3 {
+    margin: 0 0 0.4rem;
+}
+
+.admin-product-info p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.admin-product .remove-button {
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .admin-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-panel {
+        padding: 1.2rem;
+    }
+}

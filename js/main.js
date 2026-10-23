@@ -1,6 +1,17 @@
 const CART_KEY = "novatech_cart";
 const ACCOUNT_KEY = "novatech_account";
 
+
+const PRODUCT_KEY = "auratek_products";
+
+// Get products saved by the admin panel.
+// If there are no saved products, use the original list.
+function getProducts() {
+    const saved = localStorage.getItem(PRODUCT_KEY);
+
+    return saved !== null ? JSON.parse(saved) : PRODUCTS;
+}
+
 function money(value) {
   return new Intl.NumberFormat("en-CA", {
     style: "currency",
@@ -41,7 +52,7 @@ function renderProducts() {
   const grid = document.getElementById("product-grid");
   if (!grid) return;
 
-  grid.innerHTML = PRODUCTS.map(product => `
+grid.innerHTML = getProducts().map(product => `
     <article class="product-card">
       <a href="product.html?id=${product.id}">
         <img src="${product.image}" alt="${product.name}">
@@ -49,7 +60,7 @@ function renderProducts() {
       <div class="product-card-body">
         <p class="eyebrow">${product.category}</p>
         <h3><a href="product.html?id=${product.id}">${product.name}</a></h3>
-        <p>${product.short}</p>
+        <p>${product.short || product.description || ""}</p>
         <div class="price">${money(product.price)}</div>
         <div style="display:flex;gap:.6rem;margin-top:1rem;">
           <a class="btn secondary" href="product.html?id=${product.id}">Details</a>
@@ -65,14 +76,14 @@ function renderProductDetail() {
   if (!container) return;
 
   const id = Number(new URLSearchParams(location.search).get("id"));
-  const product = PRODUCTS.find(p => p.id === id);
+  const product = getProducts().find(p => p.id === id);
 
   if (!product) {
     container.innerHTML = `<div class="empty-state">Product not found.</div>`;
     return;
   }
 
-  document.title = `${product.name} | NovaTech`;
+  document.title = `${product.name} | AuraTek`;
 
   container.innerHTML = `
     <img src="${product.image}" alt="${product.name}">
@@ -82,7 +93,7 @@ function renderProductDetail() {
       <div class="price">${money(product.price)}</div>
       <p>${product.description}</p>
       <ul class="feature-list">
-        ${product.features.map(feature => `<li>${feature}</li>`).join("")}
+              ${(product.features || []).map(feature => `<li>${feature}</li>`).join("")}
       </ul>
       <button class="btn full" onclick="addToCart(${product.id})">Add to cart</button>
     </div>
@@ -115,7 +126,7 @@ function renderCart() {
     list.innerHTML = `<div class="empty-state">Your cart is empty. <a href="index.html">Continue shopping</a>.</div>`;
   } else {
     list.innerHTML = cart.map(item => {
-      const product = PRODUCTS.find(p => p.id === item.id);
+      const product = getProducts().find(p => p.id === item.id);
       if (!product) return "";
       return `
         <article class="cart-item">
@@ -138,7 +149,7 @@ function renderCart() {
   }
 
   const subtotal = cart.reduce((sum, item) => {
-    const product = PRODUCTS.find(p => p.id === item.id);
+    const product = getProducts().find(p => p.id === item.id);
     return sum + (product ? product.price * item.quantity : 0);
   }, 0);
 
@@ -203,7 +214,7 @@ function setupAccountForm() {
         return;
       }
 
-      const orderNumber = "NT-" + Math.floor(100000 + Math.random() * 900000);
+      const orderNumber = "AT-" + Math.floor(100000 + Math.random() * 900000);
       document.getElementById("order-message").textContent =
         `Demo order ${orderNumber} created. No payment was processed.`;
 
